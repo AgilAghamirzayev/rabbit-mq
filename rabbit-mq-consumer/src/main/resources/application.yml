@@ -1,0 +1,27 @@
+server:
+  port: 9091
+spring:
+  rabbitmq:
+    addresses: localhost:5672
+    username: user
+    password: user
+    listener:
+      simple:
+        retry:
+          enabled: true
+          initial-interval: 3s
+#          max-attempts: 6
+          max-attempts: 2
+          max-interval: 10s
+          multiplier: 2
+        missing-queues-fatal: false
+
+rabbitmq:
+  dlq:
+    name: mastercode_dlq
+    exchange: mastercode_dlq_ex
+    routing-key:  mastercode_dlq_rk
+  queue:
+    name: mastercode_q
+    exchange: mastercode_q_ex
+    routing-key:  mastercode_q_rk

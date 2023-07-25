@@ -1,0 +1,11 @@
+server:
+  port: 0
+spring:
+  rabbitmq:
+    addresses: localhost:5672
+    username: user
+    password: user
+
+rabbitmq:
+  queue:
+    name: mastercode_q
